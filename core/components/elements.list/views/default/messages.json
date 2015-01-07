@@ -1,0 +1,8 @@
+{
+    "create_topic" : { "en" : "Create topic", "ru" : "Создать вопрос" },
+    "topic_category" : { "en" : "Question category :", "ru" : "Категория вопроса :" },
+    "topic_title" : { "en" : "Question title :", "ru" : "Заголовок вопроса :" },
+    "topic_desc" : { "en" : "Question description :", "ru" : "Описание вопроса :" },
+    "submit_button" : { "en" : "Create topic", "ru" : "Создать вопрос" },
+    "close_button" : { "en" : "Close", "ru" : "Закрыть" }
+}

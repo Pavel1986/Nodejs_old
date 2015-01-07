@@ -1,0 +1,12 @@
+<div id='auth'>
+    {{? !it.arRequest.Authorized }}
+        <a id='auth_link'>{{=it.CMessages.auth_button}}</a>
+        <a id='reg_link'>{{=it.CMessages.reg_button}}</a>
+    {{??}}
+
+       Welcome, <span id="AuthUserName">{{=it.arUser.Name}}</span><a id='logout_link'>{{=it.CMessages.logout_button}}</a>
+    {{?}}
+</div>
+
+
+

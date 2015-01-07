@@ -1,0 +1,11 @@
+#topic_filter{
+    width: 100%;
+}
+
+#create_topic_link{
+    color: red;
+}
+
+#AuthUserName{
+    margin-right: 20px;
+}

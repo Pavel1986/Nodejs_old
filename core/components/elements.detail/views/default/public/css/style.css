@@ -1,0 +1,67 @@
+#TopicDetail{
+    border: 1px solid black;
+    border-radius: 10px;
+}
+#TopicDetailTitle{
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+
+#BackLink{
+    float: right;
+}
+
+#TopicDetailDescription{
+    border-bottom: 1px solid black;
+    padding: 10px;
+}
+
+
+
+#TopicDetails{
+    margin: 0 auto;
+    width: 80%;
+}
+
+#TopicDetails td{
+    padding: 20px;
+}
+
+
+
+
+#ChatBox {
+    border: 1px solid black;
+    margin: 0 auto;
+    width: 100%;
+    height: 600px;
+}
+
+#MessagesList {
+    width: 870px;
+    height: 600px;
+    border: 1px solid blue;
+    float: left;
+}
+
+#VisitorsDiv{
+    border: 1px solid red;
+    float: right;
+    width: 200px;
+
+}
+
+#VisitorsList{
+    height: 200px;
+}
+
+.VoteForMember img {
+    cursor: pointer;
+    position: relative;
+    margin-left: 3px;
+    top: 4px;
+}
+
+.HideVoting img {
+    cursor: default;
+}

@@ -1,0 +1,1 @@
+exports.Function2 = function(){console.log("Function2");}

@@ -1,0 +1,19 @@
+<div id="languages">
+
+            {{ for(var Language in it.InterfaceLanguages) {
+
+                var UrlString = "/";
+
+                if(it.InterfaceLanguages[Language] !== it.DefaultLanguage){
+                    UrlString = UrlString + it.InterfaceLanguages[Language] + "/";
+                }
+
+            }}
+
+            <a href="{{=UrlString}}"><img src="/images/flags/{{=it.InterfaceLanguages[Language]}}.png"></a>{{
+            } }}
+
+</div>
+
+
+

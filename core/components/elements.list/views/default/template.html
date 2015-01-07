@@ -1,0 +1,112 @@
+    <div id="TopicsFilter">
+
+        <button id="RefreshTopicsList">Refresh topics list</button>
+
+        Category :
+        <select id="CategoryList">
+            <option value="All">All</option>
+            <option value="ActionScript">ActionScript</option>
+            <option value="AppleScript">AppleScript</option>
+            <option value="Asp">Asp</option>
+            <option value="BASIC">BASIC</option>
+            <option value="C">C</option>
+            <option value="C++">C++</option>
+            <option value="Clojure">Clojure</option>
+            <option value="COBOL">COBOL</option>
+            <option value="ColdFusion">ColdFusion</option>
+        </select>
+
+        Status :
+        <select id="StatusList">
+            <option value="All">All</option>
+            <option value="Opened">Opened</option>
+            <option value="Completed">Completed</option>
+            <option value="Closed">Closed</option>
+        </select>
+
+        Sorting :
+        <select id="SortList">
+            <option value="Date">Date</option>
+            <option value="popular">Most popular</option>
+            <option value="commented">Most commented</option>
+        </select>
+
+        <div id="CreateTopic">
+        {{? it.arRequest.Authorized && it.UserIsNotInTopics }}
+            <a id="create_topic_link">{{=it.CMessages.create_topic}}</a>
+        {{?}}
+        </div>
+
+
+
+    </div>
+
+    <div id="TopicsList">
+
+
+        <div id="NavBar">
+            {{? it.arNavParams.PagesCount > 1}}
+                {{ for(page_counter=1; page_counter<=it.arNavParams.PagesCount; page_counter++) { }}
+                <a href="{{=it.arRequest.LanguageDirectory}}/?page={{=page_counter}}">{{=page_counter}}</a>
+                {{ } }}
+            {{?}}
+        </div>
+
+        {{ for(var TopicKey in it.TopicList) { }}
+
+        <div class="TopicElement">
+            <div class="TopicTitle"><span class="TopicStatus">{{=it.TopicList[TopicKey].Category.Value}} :: </span>{{=it.TopicList[TopicKey].Author.Name}} : {{=it.TopicList[TopicKey].Title}}
+            <span class="TopicDetailLink"><a href="{{=it.arRequest.LanguageDirectory}}/detail/?ID={{=it.TopicList[TopicKey]._id}}">Detailed view</a></span>
+            </div>
+            <div>
+                <img class="AuthorImage" src="/images/UnknownUser.png">
+                <div class="TopicDescription">
+                    {{=it.TopicList[TopicKey].Description}}
+                </div>
+
+                <div style="clear: both"></div>
+
+            </div>
+        </div>
+
+        {{ } }}
+
+        <div>
+            {{? it.arNavParams.PagesCount > 1}}
+            {{ for(page_counter=1; page_counter<=it.arNavParams.PagesCount; page_counter++) { }}
+            <a href="{{=it.arRequest.LanguageDirectory}}/?page={{=page_counter}}">{{=page_counter}}</a>
+            {{ } }}
+            {{?}}
+        </div>
+    </div>
+
+</div>
+
+<div id="CreateTopicForm" title="{{=it.CMessages.create_topic}}" save_btn="{{=it.CMessages.submit_button}}" close_btn="{{=it.CMessages.close_button}}">
+    <table id="create_topic_table" style="width: 100%">
+        <tr><td>
+            <table><tr>
+                <td>{{=it.CMessages.topic_category}}
+                    <select id="TopicCategory">
+                    {{ for(var CategoryKey in it.Categories.Values) { }}
+                        <option value="{{=it.Categories.Values[CategoryKey]._id}}">{{=it.Categories.Values[CategoryKey].Name}}</option>{{
+                    } }}
+                    </select>
+                </td>
+            </tr></table>
+        </td></tr>
+        <tr><td>{{=it.CMessages.topic_title}}<br />
+            <input id="TopicName" style="width: 100%;" type="text">
+        </td></tr>
+        <tr><td>
+            <label id="label_TopicName" class="auth_info_msg" style="width: 100%"></label>
+        <td></tr>
+        <tr><td>{{=it.CMessages.topic_desc}}<br />
+            <textarea style="width: 100%; height: 270px;" id="TopicDesc"></textarea>
+        </td></tr>
+        <tr><td>
+            <label id="label_TopicDesc" class="auth_info_msg"></label>
+          <td></tr>
+    </table>
+
+

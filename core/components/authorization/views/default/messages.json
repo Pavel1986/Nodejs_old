@@ -1,0 +1,14 @@
+{
+    "auth_button" : {
+        "en" : "Authorization",
+        "ru" : "Авторизация"
+    },
+    "reg_button" : {
+        "en" : "Registration",
+        "ru" : "Регистрация"
+    },
+    "logout_button" :{
+        "en" : "Logout",
+        "ru" : "Выход"
+    }
+}

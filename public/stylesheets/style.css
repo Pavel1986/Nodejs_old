@@ -1,0 +1,70 @@
+body {
+  height: 100%;
+  padding: 60px 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+#structure{
+    margin: 0 auto;
+    width: 70%;
+}
+
+a {
+    color: #00b7ff;
+    text-decoration: none;
+}
+img{
+    border: none;
+}
+
+#content {
+    padding-bottom: 20px;
+}
+
+#logo{
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+#menu{
+      display: inline;
+}
+
+#auth{
+    float: right;
+    display: block;
+    margin-bottom: 10px;
+}
+
+#languages{
+    clear: both;
+    float: right;
+    display: block;
+}
+
+#languages a {
+    margin-right: 10px;
+}
+
+
+/* jQuery Combobox style*/
+.custom-combobox {
+    position: relative;
+    display: inline-block;
+    padding-right: 50px;
+}
+.custom-combobox-toggle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-left: -1px;
+    padding: 0;
+    /* support: IE7 */
+    *height: 1.7em;
+    *top: 0.1em;
+}
+.custom-combobox-input {
+    margin: 0;
+    padding: 0.3em;
+}
+/*********************/

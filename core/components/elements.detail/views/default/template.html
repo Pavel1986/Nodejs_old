@@ -1,0 +1,85 @@
+<div id="TopicDetail">
+    <div id="TopicDetailTitle">
+        <span class="TopicStatus">{{=it.Topic.Category.Value}} :: </span>{{=it.Topic.Author.Name}} : {{=it.Topic.Title}}
+        <span id="BackLink"><a href="{{=it.arRequest.LanguageDirectory}}/">Back to list</a></span>
+    </div>
+    <div id="TopicDetailDescription">
+        Описание : {{=it.Topic.Description}}
+    </div>
+
+    <table id="TopicDetails">
+
+        <tr>
+            <td>
+                <b>Status : </b>{{=it.Topic.Status_code}}<br />
+                {{? it.Topic.Status_code === "Processing"}}
+                <b>Countdown : </b><span id="countdown"></span><br />
+                {{?}}
+
+                {{? it.Topic.Winner}}
+                <b>Winner : </b>{{=it.Topic.Winner.Name}}<br />
+                {{?}}
+
+            </td>
+            <td>
+                {{ var HideVoting = ''; }}
+                {{ var CurrentUserVotedForThisMember = '';}}
+                {{ for(var Member in it.TopicMembers) { }}
+
+                {{? it.TopicMembers[Member].CurrentUserVotedForThisMember === true}}
+                {{ HideVoting = ' HideVoting'; }}
+                {{??}}
+                {{ HideVoting = ''; }}
+                {{?}}
+
+
+                <div class="VoteForMember{{=HideVoting}}" id="{{=it.TopicMembers[Member]._id}}" >
+                    {{=it.TopicMembers[Member].Name}} : <span class="VotesCount" >{{=it.TopicMembers[Member].VotesCount}}</span>
+
+                    {{? it.Topic.Status_code === "Processing" && it.arRequest.Authorized && !it.UserIsTopicMember}}
+                    <img>
+                    {{?}}
+
+                </div>
+
+                {{ } }}
+
+
+            </td>
+        </tr>
+        </table>
+
+    <form>
+
+        <div id="ChatBox" style="border: 1px solid green">
+            <div id="MessagesList">
+                {{ for(var TopicMessage in it.TopicMessages) { }}
+                    <p>{{=it.TopicMessages[TopicMessage].Message}}</p>
+                {{ } }}
+            </div>
+            <div id="VisitorsDiv">
+                <div>Visitors list :</div>
+                <div id="VisitorsList">
+                    <ul>
+                    </ul>
+
+                </div>
+            </div>
+
+        </div>
+
+        {{? it.Topic.Status_code === "Opened" && it.arRequest.Authorized && it.UserIsNotInTopics}}
+            <input id="JoinTopic" type="button" value="Join topic">
+        {{?}}
+
+        {{? it.Topic.Status_code === "Processing" && it.arRequest.Authorized && it.UserIsTopicMember}}
+            <div id="SendDiv">
+                <input id="TextField" type="text" style="width: 250px"><input id="Send" type="button" value="Send">
+            </div>
+        {{?}}
+
+        <br /><br />
+        <input id="StopTimer" type="button" value="StopTimer">
+
+    </form>
+</div>
